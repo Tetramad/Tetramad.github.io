@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html lang="">
 <head>
-	<meta name="generator" content="Hugo 0.69.2" />
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
-  <title>dev/log</title>
+  <title>DOM과 텍스트</title>
   <link href="/css/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   <link href="/css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/styles/default.min.css">
@@ -50,56 +49,72 @@
   </div>
 
 
+
 <div class="container">
   <div class="section">
 
-
-<div class="row">
-
-  
-  <div class="col m4 s12">
-    <div class="card-panel">
-      <h4><a href="/til/dom%EA%B3%BC-%ED%85%8D%EC%8A%A4%ED%8A%B8/">DOM과 텍스트</a></h4>
-      <p>
-      
-        
-          <a href="/categories/til/">TIL</a>
-        
-       
-      </p>
-      <p>개요 DOM 객체에서 문자열을 얻는 세 가지 방법을 간단히 비교했다. 세 가지 방법은 Node.textContent를 이용하는 방법, Element.inner</p>
-      <p>
-      30 Apr 2020
-      
-        
-          <a href="/tags/javascript/">#Javascript</a>
-        
-          <a href="/tags/web/">#Web</a>
-        
-          <a href="/tags/dom/">#DOM</a>
-        
-       
-      </p>
+    <div class="row">
+      <div class="col s12">
+        <div class="card-panel">
+          <h4>DOM과 텍스트</h4>
+          <p>
+          
+            
+              <a href="/categories/til/">TIL</a>
+            
+           
+          </p>
+          <p><h5 id="개요">개요</h5>
+<p>DOM 객체에서 문자열을 얻는 세 가지 방법을 간단히 비교했다. 세 가지 방법은 <code>Node.textContent</code>를 이용하는 방법, <code>Element.innerHTML</code>을 이용하는 방법, <code>HTMLElement.innerText</code>를 이용하는 방법이다.</p>
+<h5 id="실험-코드">실험 코드</h5>
+<p>실험할 코드는 아래와 같다.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">ul</span>&gt;
+  &lt;<span style="color:#f92672">li</span>&gt;hello&lt;/<span style="color:#f92672">li</span>&gt;
+  &lt;<span style="color:#f92672">li</span>&gt;&lt;<span style="color:#f92672">strong</span>&gt;strong&lt;/<span style="color:#f92672">strong</span>&gt;&lt;/<span style="color:#f92672">li</span>&gt;
+  &lt;<span style="color:#f92672">li</span>&gt;world&lt;/<span style="color:#f92672">li</span>&gt;
+&lt;/<span style="color:#f92672">ul</span>&gt;
+</code></pre></div><h5 id="결과">결과</h5>
+<p><code>&lt;ul&gt;</code> 태그에 대해서 각각의 결과를 살펴보았다.</p>
+<p><strong>Node.textContent</strong><br>
+&ldquo;hellostrongworld&rdquo;</p>
+<p><strong>Element.innerHTML</strong><br>
+&ldquo;hello<br>
+strong<br>
+world&rdquo;</p>
+<p><strong>HTMLElement.innerText</strong><br>
+&ldquo;&lt;li&gt;hello&lt;/il&gt;<br>
+&lt;li&gt;&lt;strong&gt;strong&lt;/strong&gt;<br>
+&lt;/li&gt;&lt;li&gt;world&lt;/li&gt;</p>
+</p>
+          <p>30 Apr 2020
+            
+              
+                <a href="/tags/javascript/">#Javascript</a>
+              
+                <a href="/tags/web/">#Web</a>
+              
+                <a href="/tags/dom/">#DOM</a>
+              
+            
+          </p>
+          
+        </div>
+      </div>
     </div>
-  </div>
 
-</div>
-
-  
-<div class="row">
-  <div class="col s3 m1">
-  
-    <a class="btn-floating btn-large disabled"><i class="mdi-navigation-arrow-back"></i></a>
-  
-  </div>
-  <div class="col s6 m10 center">&nbsp</div>
-  <div class="col s3 m1">
-  
-    <a class="btn-floating btn-large disabled"><i class="mdi-navigation-arrow-forward"></i></a>
-  
-  </div>
-</div>
-
+    <div class="row">
+      <div class="col s3 m1">
+      
+        <a class="btn-floating btn-large disabled"><i class="mdi-navigation-arrow-back"></i></a>
+      
+      </div>
+      <div class="col s6 m10 center">&nbsp</div>
+      <div class="col s3 m1">
+      
+        <a class="btn-floating btn-large disabled"><i class="mdi-navigation-arrow-forward"></i></a>
+      
+      </div>
+    </div>
 
   </div>
 </div>
@@ -121,3 +136,4 @@
 
   </body>
 </html>
+

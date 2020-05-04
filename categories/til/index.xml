@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>dev/log</title>
-    <link>/</link>
-    <description>Recent content on dev/log</description>
+    <title>TIL on dev/log</title>
+    <link>/categories/til/</link>
+    <description>Recent content in TIL on dev/log</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Thu, 30 Apr 2020 16:24:00 +0900</lastBuildDate>
     
-	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/categories/til/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
