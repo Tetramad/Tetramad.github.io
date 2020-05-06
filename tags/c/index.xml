@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>C on dev/log</title>
+    <link>/tags/c/</link>
+    <description>Recent content in C on dev/log</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Thu, 23 Apr 2020 00:00:00 +0900</lastBuildDate>
+    
+        <atom:link href="/tags/c/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>C와 &amp;lt;stdbool.h&amp;gt;</title>
+      <link>/til/c%EC%99%80-stdbool.h/</link>
+      <pubDate>Thu, 23 Apr 2020 00:00:00 +0900</pubDate>
+      
+      <guid>/til/c%EC%99%80-stdbool.h/</guid>
+      <description>&amp;lt;stdbool.h&amp;gt;이란 &amp;lt;stdbool.h&amp;gt;은 C99버전을 기준으로 표준이 된 헤더 파일이다. 이는 C99 버전부터 _Bool</description>
+      
+    </item>
+    
+  </channel>
+</rss>

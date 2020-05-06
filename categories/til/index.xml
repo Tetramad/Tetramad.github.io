@@ -1,14 +1,24 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>TIL on dev/log</title>
     <link>/categories/til/</link>
     <description>Recent content in TIL on dev/log</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Thu, 30 Apr 2020 16:24:00 +0900</lastBuildDate>
+    <lastBuildDate>Thu, 07 May 2020 00:13:45 +0900</lastBuildDate>
     
-	<atom:link href="/categories/til/index.xml" rel="self" type="application/rss+xml" />
+        <atom:link href="/categories/til/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Javascript Sort Stability</title>
+      <link>/til/javascript-sort-stability/</link>
+      <pubDate>Thu, 07 May 2020 00:13:45 +0900</pubDate>
+      
+      <guid>/til/javascript-sort-stability/</guid>
+      <description>Stability Stability란 정렬 알고리즘에서 정렬 이후 같은 값 또는 팩터(factor)를 갖는 요소끼리는 정렬 이전과 같은 순서를 유지하는 가를 나타내는 말이다.</description>
+      
+    </item>
     
     <item>
       <title>DOM과 텍스트</title>
@@ -17,6 +27,27 @@
       
       <guid>/til/dom%EA%B3%BC-%ED%85%8D%EC%8A%A4%ED%8A%B8/</guid>
       <description>개요 DOM 객체에서 문자열을 얻는 세 가지 방법을 간단히 비교했다. 세 가지 방법은 Node.textContent를 이용하는 방법, Element.inner</description>
+      
+    </item>
+    
+    <item>
+      <title>가장 큰 정사각형 찾기</title>
+      <link>/til/%EA%B0%80%EC%9E%A5-%ED%81%B0-%EC%A0%95%EC%82%AC%EA%B0%81%ED%98%95-%EC%B0%BE%EA%B8%B0/</link>
+      <pubDate>Mon, 27 Apr 2020 00:00:00 +0900</pubDate>
+      
+      <guid>/til/%EA%B0%80%EC%9E%A5-%ED%81%B0-%EC%A0%95%EC%82%AC%EA%B0%81%ED%98%95-%EC%B0%BE%EA%B8%B0/</guid>
+      <description>첫 번째 접근 방법 정사각형을 올려놓고 가능한 정사각형인지 판단해보자. 가장 큰 정사각형에서 가장 작은 정사각형까지 바꿔가면서 진행한다. 정사각형을 올려보고 안</description>
+      
+    </item>
+    
+    <item>
+      <title>C와 &amp;lt;stdbool.h&amp;gt;</title>
+      <link>/til/c%EC%99%80-stdbool.h/</link>
+      <pubDate>Thu, 23 Apr 2020 00:00:00 +0900</pubDate>
+      
+      <guid>/til/c%EC%99%80-stdbool.h/</guid>
+      <description>&amp;lt;stdbool.h&amp;gt;이란 &amp;lt;stdbool.h&amp;gt;은 C99버전을 기준으로 표준이 된 헤더 파일이다. 이는 C99 버전부터 _Bool</description>
+      
     </item>
     
   </channel>

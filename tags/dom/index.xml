@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>DOM on dev/log</title>
     <link>/tags/dom/</link>
@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Thu, 30 Apr 2020 16:24:00 +0900</lastBuildDate>
     
-	<atom:link href="/tags/dom/index.xml" rel="self" type="application/rss+xml" />
+        <atom:link href="/tags/dom/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -17,6 +17,7 @@
       
       <guid>/til/dom%EA%B3%BC-%ED%85%8D%EC%8A%A4%ED%8A%B8/</guid>
       <description>개요 DOM 객체에서 문자열을 얻는 세 가지 방법을 간단히 비교했다. 세 가지 방법은 Node.textContent를 이용하는 방법, Element.inner</description>
+      
     </item>
     
   </channel>
