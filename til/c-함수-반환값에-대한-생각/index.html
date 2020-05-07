@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en"><meta charset="utf-8"><meta name="generator" content="Hugo 0.69.2" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<meta name="supported-color-schemes" content="light dark"><title>C 함수 반환값에 대한 생각&nbsp;&ndash;&nbsp;dev/log</title><link rel="stylesheet" href="/css/core.min.58bc4672a8045a0810ba4ad30a08c6d5589db1109ca0aa2e07c5e5438201ea8d11642ffa31d8ee7665d6a1b66ab9a3c5.css" integrity="sha384-WLxGcqgEWggQukrTCgjG1VidsRCcoKouB8XlQ4IB6o0RZC/6MdjudmXWobZquaPF"><meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="C 함수 반환값에 대한 생각" /><body><section id="header">
+    <div class="header wrap"><span class="header left-side"><a class="site home" href="/"><span class="site name">dev/log</span></a></span>
+        <span class="header right-side"><div class="nav wrap"><nav class="nav"><a class="nav item" href="/categories/">Categories</a><a class="nav item" href="/tags/">Tags</a></nav></div></span></div></section><section id="content"><div class="article-container"><section class="article header">
+    <h1 class="article title">C 함수 반환값에 대한 생각</h1><p class="article date">2020-04-07</p></section><article class="article markdown-body"><h3 id="c언어의-반환값"><strong>C</strong>언어의 반환값</h3>
+<p>주로 사용되는 반환값 종류</p>
+<ul>
+<li>결과</li>
+<li>오류코드</li>
+</ul>
+<p>이 두 가지 중 우선순위를 두자면 오류코드를 우선적으로 반환해야 한다. 아래 두 예시를 보며 그 이유를 느낄 수 있다.</p>
+<div class="highlight"><pre class="chroma"><code class="language-c" data-lang="c"><span class="n">out_error</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="o">&amp;</span><span class="n">out_result</span><span class="p">);</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">out_error</span> <span class="o">==</span> <span class="n">error</span><span class="p">)</span>
+    <span class="n">error_handling</span><span class="p">();</span>
+<span class="cm">/*또는*/</span>
+<span class="k">if</span> <span class="p">((</span><span class="n">out_error</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="o">&amp;</span><span class="n">out_result</span><span class="p">))</span> <span class="o">==</span> <span class="n">error</span><span class="p">)</span>
+    <span class="n">error_handling</span><span class="p">();</span>
+</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-c" data-lang="c"><span class="n">out_result</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="o">&amp;</span><span class="n">out_error</span><span class="p">);</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">out_error</span> <span class="o">==</span> <span class="n">error</span><span class="p">)</span>
+    <span class="n">error_handling</span><span class="p">();</span>
+</code></pre></div><p>호출자가 오류를 확인하기에는 오류를 반환해주는 경우가 더 직관적이다. 호출자가 오류를 확인하지 않은 경우 더욱 오류를 반환해주는 쪽이 편리하다.</p>
+<div class="highlight"><pre class="chroma"><code class="language-c" data-lang="c"><span class="cm">/* 반환값 버려짐 */</span><span class="n">func</span><span class="p">(</span><span class="o">&amp;</span><span class="n">out_result</span><span class="p">);</span>
+<span class="cm">/* out_result를 사용하는 코드 */</span>
+</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-c" data-lang="c"><span class="n">out_result</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="o">&amp;</span><span class="n">out_error</span><span class="p">);</span> <span class="cm">/* 쓸모없는 out_error 변수 필요 */</span>
+<span class="cm">/* out_result를 사용하는 코드 */</span>
+</code></pre></div><p>당연한 이야기이지만 오류를 반환해주는 쪽이 어셈블리가 조금 짧다. 위쪽이 오류를 반환하는 함수의 어셈블리, 아래쪽이 결과를 반환하는 함수의 어셈블리.</p>
+<pre><code>main: # @main
+  push rbp
+  mov rbp, rsp
+  sub rsp, 16
+  mov dword ptr [rbp - 4], 0
+  lea rdi, [rbp - 8]
+  call func
+  cmp eax, 0
+  jne .LBB1_2
+  movabs rdi, offset .L.str
+  mov al, 0
+  call printf
+  jmp .LBB1_3
+</code></pre><pre><code>main: # @main
+  push rbp
+  mov rbp, rsp
+  sub rsp, 16
+  mov dword ptr [rbp - 4], 0
+  lea rdi, [rbp - 12]
+  call func
+  mov dword ptr [rbp - 8], eax
+  cmp dword ptr [rbp - 12], 0
+  jne .LBB1_2
+  movabs rdi, offset .L.str
+  mov al, 0
+  call printf
+  jmp .LBB1_3
+</code></pre><p>반환값이 없을 것 같은 함수에도 그럴듯한 반환값을 주는 것이 좋다. 논리 연산자를 이용한 함수 연결을 가능하게 하여 때로 코드를 더 간결하게 유지해준다. <code>strcpy</code>처럼 반환값이 필요하지 않을 것 같은 함수도 반환값이 존재한다.</p>
+<div class="highlight"><pre class="chroma"><code class="language-c" data-lang="c"><span class="kt">void</span>     <span class="nf">foo</span><span class="p">(</span><span class="kt">char</span> <span class="o">*</span><span class="n">dst</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">src</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">dst</span> <span class="o">!=</span> <span class="nb">NULL</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">strcpy</span><span class="p">(</span><span class="n">dst</span><span class="p">,</span> <span class="n">src</span><span class="p">);</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">strlen</span><span class="p">(</span><span class="n">dst</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">)</span>
+            <span class="o">*</span><span class="n">dst</span> <span class="o">=</span> <span class="sc">&#39;*&#39;</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-c" data-lang="c"><span class="kt">void</span>    <span class="nf">bar</span><span class="p">(</span><span class="kt">char</span> <span class="o">*</span><span class="n">dst</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">src</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">dst</span> <span class="o">!=</span> <span class="nb">NULL</span> <span class="o">&amp;&amp;</span> <span class="n">strcpy</span><span class="p">(</span><span class="n">dst</span><span class="p">,</span> <span class="n">src</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="n">strlen</span><span class="p">(</span><span class="n">dst</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="o">*</span><span class="n">dst</span> <span class="o">=</span> <span class="sc">&#39;*&#39;</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div><p>아래는 &lsquo;x86-64 clang10.0.0&rsquo; 컴파일러로 컴파일한 결과이다.</p>
+<pre><code>foo: # @foo
+  push rbp
+  mov rbp, rsp
+  sub rsp, 32
+  mov qword ptr [rbp - 8], rdi
+  mov qword ptr [rbp - 16], rsi
+  cmp qword ptr [rbp - 8], 0
+  je .LBB0_4
+  mov rdi, qword ptr [rbp - 8]
+  mov rsi, qword ptr [rbp - 16]
+  call strcpy
+  mov rdi, qword ptr [rbp - 8]
+  mov qword ptr [rbp - 24], rax
+  call strlen
+  cmp rax, 1
+  jbe .LBB0_3
+  mov rax, qword ptr [rbp - 8]
+  mov byte ptr [rax], 42
+.LBB0_3:
+  jmp .LBB0_4
+.LBB0_4:
+  add rsp, 32
+  pop rbp
+  ret
+</code></pre><pre><code>bar: # @bar
+  push rbp
+  mov rbp, rsp
+  sub rsp, 16
+  mov qword ptr [rbp - 8], rdi
+  mov qword ptr [rbp - 16], rsi
+  cmp qword ptr [rbp - 8], 0
+  je .LBB1_4
+  mov rdi, qword ptr [rbp - 8]
+  mov rsi, qword ptr [rbp - 16]
+  call strcpy
+  cmp rax, 0
+  je .LBB1_4
+  mov rdi, qword ptr [rbp - 8]
+  call strlen
+  cmp rax, 1
+  jbe .LBB1_4
+  mov rax, qword ptr [rbp - 8]
+  mov byte ptr [rax], 42
+.LBB1_4:
+  add rsp, 16
+  pop rbp
+  ret
+</code></pre><p>이처럼 다양한 방법으로 활용할 수 있기에 무엇을 반환해 줄지를 정하는 것도 중요하다.</p>
+</article><section class="article labels"><a class="category" href=/categories/til/>TIL</a><a class="tag" href=/tags/c/>C</a></section></div>
+<div class="article bottom"><section class="article navigation"><p><a class="link" href="/til/iso646-trigraphs%EC%99%80-digraphs/"><span class="li iconfont icon-article"></span>ISO646 Trigraphs와 Digraphs</a></p><p><a class="link" href="/til/%EB%B0%94%EC%9D%B4%ED%8A%B8%EC%99%80-%EB%8B%88%EB%B8%94/"><span class="li iconfont icon-article"></span>바이트와 니블</a></p></section></div></section><section id="footer"><div class="footer-wrap">
+    <p class="copyright">dev/log</p>
+    <p class="powerby"><span>Powered by </span><a href="https://gohugo.io" 
+        target="_blank">Hugo</a><span> and the </span><a href="https://themes.gohugo.io/hugo-notepadium/" 
+        target="_blank">Notepadium</a></p>
+</div></section><script defer type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity="sha384-e/4/LvThKH1gwzXhdbY2AsjR3rm7LHWyhIG5C0jiRfn8AN2eTN5ILeztWw0H9jmN" crossorigin="anonymous"></script>
+        <script
+            type="text/x-mathjax-config">MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });</script></body>
+
+</html>

@@ -5,10 +5,20 @@
     <link>/tags/</link>
     <description>Recent content in Tags on dev/log</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Thu, 07 May 2020 00:13:45 +0900</lastBuildDate>
+    <lastBuildDate>Fri, 08 May 2020 00:06:36 +0900</lastBuildDate>
     
         <atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Mathematics</title>
+      <link>/tags/mathematics/</link>
+      <pubDate>Fri, 08 May 2020 00:06:36 +0900</pubDate>
+      
+      <guid>/tags/mathematics/</guid>
+      <description></description>
+      
+    </item>
     
     <item>
       <title>Algorithm</title>
@@ -76,6 +86,56 @@
       <pubDate>Thu, 23 Apr 2020 00:00:00 +0900</pubDate>
       
       <guid>/tags/c/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Cross-platform</title>
+      <link>/tags/cross-platform/</link>
+      <pubDate>Sun, 12 Apr 2020 00:00:00 +0900</pubDate>
+      
+      <guid>/tags/cross-platform/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>git</title>
+      <link>/tags/git/</link>
+      <pubDate>Sun, 12 Apr 2020 00:00:00 +0900</pubDate>
+      
+      <guid>/tags/git/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Computer Architecture</title>
+      <link>/tags/computer-architecture/</link>
+      <pubDate>Sun, 15 Mar 2020 00:00:00 +0900</pubDate>
+      
+      <guid>/tags/computer-architecture/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>C&#43;&#43;</title>
+      <link>/tags/c&#43;&#43;/</link>
+      <pubDate>Mon, 30 Dec 2019 00:00:00 +0900</pubDate>
+      
+      <guid>/tags/c&#43;&#43;/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>CMake</title>
+      <link>/tags/cmake/</link>
+      <pubDate>Fri, 13 Dec 2019 00:00:00 +0900</pubDate>
+      
+      <guid>/tags/cmake/</guid>
       <description></description>
       
     </item>

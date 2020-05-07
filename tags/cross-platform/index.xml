@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Cross-platform on dev/log</title>
+    <link>/tags/cross-platform/</link>
+    <description>Recent content in Cross-platform on dev/log</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Sun, 12 Apr 2020 00:00:00 +0900</lastBuildDate>
+    
+        <atom:link href="/tags/cross-platform/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>ISO646 Trigraphs와 Digraphs</title>
+      <link>/til/iso646-trigraphs%EC%99%80-digraphs/</link>
+      <pubDate>Sun, 12 Apr 2020 00:00:00 +0900</pubDate>
+      
+      <guid>/til/iso646-trigraphs%EC%99%80-digraphs/</guid>
+      <description>C는 8비트 인코딩을 사용한다. ASCII를 사용하는 것이 표준을 정해진 것이 아니다. 이 정의 때문에 대표적으로 문제가 되었던 것이 ISO 646 인코딩이다. 표준를 만들</description>
+      
+    </item>
+    
+  </channel>
+</rss>
