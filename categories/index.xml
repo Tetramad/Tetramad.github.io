@@ -5,10 +5,20 @@
     <link>/categories/</link>
     <description>Recent content in Categories on /dev/log</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 08 May 2020 00:06:36 +0900</lastBuildDate>
+    <lastBuildDate>Wed, 13 May 2020 17:00:43 +0900</lastBuildDate>
     
         <atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>TIL</title>
+      <link>/categories/til/</link>
+      <pubDate>Wed, 13 May 2020 17:00:43 +0900</pubDate>
+      
+      <guid>/categories/til/</guid>
+      <description></description>
+      
+    </item>
     
     <item>
       <title>Reference</title>
@@ -16,16 +26,6 @@
       <pubDate>Fri, 08 May 2020 00:06:36 +0900</pubDate>
       
       <guid>/categories/reference/</guid>
-      <description></description>
-      
-    </item>
-    
-    <item>
-      <title>TIL</title>
-      <link>/categories/til/</link>
-      <pubDate>Thu, 07 May 2020 00:13:45 +0900</pubDate>
-      
-      <guid>/categories/til/</guid>
       <description></description>
       
     </item>
