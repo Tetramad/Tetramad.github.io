@@ -5,10 +5,20 @@
     <link>/categories/til/</link>
     <description>Recent content in TIL on /dev/log</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Thu, 14 May 2020 11:19:02 +0900</lastBuildDate>
+    <lastBuildDate>Fri, 15 May 2020 16:03:13 +0900</lastBuildDate>
     
         <atom:link href="/categories/til/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Lua 학습 4일차</title>
+      <link>/til/lua-%ED%95%99%EC%8A%B5-4%EC%9D%BC%EC%B0%A8/</link>
+      <pubDate>Fri, 15 May 2020 16:03:13 +0900</pubDate>
+      
+      <guid>/til/lua-%ED%95%99%EC%8A%B5-4%EC%9D%BC%EC%B0%A8/</guid>
+      <description>Module Lua에서는 여러 모듈로 나누어 프로그램을 관리한다. 모듈을 파일로 존재한다. 사용을 위해 불러오면 하나의 table로 관리된다. 파일은 각각 chunk를</description>
+      
+    </item>
     
     <item>
       <title>Lua 학습 3일차</title>
