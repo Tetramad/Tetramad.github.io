@@ -5,10 +5,20 @@
     <link>/tags/lua/</link>
     <description>Recent content in Lua on /dev/log</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 15 May 2020 16:03:13 +0900</lastBuildDate>
+    <lastBuildDate>Mon, 18 May 2020 15:24:31 +0900</lastBuildDate>
     
         <atom:link href="/tags/lua/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Lua 학습 5일차</title>
+      <link>/til/lua-%ED%95%99%EC%8A%B5-5%EC%9D%BC%EC%B0%A8/</link>
+      <pubDate>Mon, 18 May 2020 15:24:31 +0900</pubDate>
+      
+      <guid>/til/lua-%ED%95%99%EC%8A%B5-5%EC%9D%BC%EC%B0%A8/</guid>
+      <description>C API Basic 환경 설정 현재 사용 중인 환경 OS WSL Ubuntu 20.04LTS Package Manager apt 2.0.2 (amd64) C Compiler gcc (Ubuntu 9.3.0-10ubuntu2) 9.3.0 Lua Lua 5.3.3 설치한 패키지 apt install gcc lua5.3 liblua5.3-dev gcc/focal,now 4:9.3.0-1ubuntu2 amd64 [installed] C 컴파일러 lua5.3/focal,now 5.3.3-1.1ubuntu2 amd64 [installed] Lua 컴파일러와 REPL liblua5.3-dev/focal,now 5.3.3-1.1ubuntu2 amd64 [installed] Lua 라</description>
+      
+    </item>
     
     <item>
       <title>Lua 학습 4일차</title>
