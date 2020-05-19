@@ -5,10 +5,20 @@
     <link>/til/</link>
     <description>Recent content in Tils on /dev/log</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Mon, 18 May 2020 15:24:31 +0900</lastBuildDate>
+    <lastBuildDate>Tue, 19 May 2020 15:47:36 +0900</lastBuildDate>
     
         <atom:link href="/til/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Lua 학습 6일차</title>
+      <link>/til/lua-%ED%95%99%EC%8A%B5-6%EC%9D%BC%EC%B0%A8/</link>
+      <pubDate>Tue, 19 May 2020 15:47:36 +0900</pubDate>
+      
+      <guid>/til/lua-%ED%95%99%EC%8A%B5-6%EC%9D%BC%EC%B0%A8/</guid>
+      <description>Embedding Lua 오늘은 Lua를 C언어로 작성된 프로그램에서 사용하는 방법을 공부했다. 그 중 설정 파일은 Lua로 작성하는 것을 실습해보았다. 지금부터는 강의 자료보다 매</description>
+      
+    </item>
     
     <item>
       <title>Lua 학습 5일차</title>
