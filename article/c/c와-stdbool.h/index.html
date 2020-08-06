@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en"><meta charset="utf-8"><meta name="generator" content="Hugo 0.68.3" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<meta name="supported-color-schemes" content="light dark"><title>C와 &lt;stdbool.h&gt;&nbsp;&ndash;&nbsp;/dev/log</title><link rel="stylesheet" href="/css/core.min.e423c83b21da92bb4e8bb830c9f1f244c55526656580aee89a97a9a3286de39f5329f5710761b5118b808bb4ad342ff6.css" integrity="sha384-5CPIOyHakrtOi7gwyfHyRMVVJmVlgK7ompepoyht459TKfVxB2G1EYuAi7StNC/2"><meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="C와 &amp;lt;stdbool.h&amp;gt;" /><body><section id="header">
+    <div class="header wrap"><span class="header left-side"><a class="site home" href="/"><span class="site name">/dev/log</span></a></span>
+        <span class="header right-side"><div class="nav wrap"><nav class="nav"><a class="nav item" href="/categories/">Categories</a><a class="nav item" href="/tags/">Tags</a></nav></div></span></div></section><section id="content"><div class="article-container"><section class="article header">
+    <h1 class="article title">C와 &lt;stdbool.h&gt;</h1><p class="article date">2020-04-23</p></section><article class="article markdown-body"><h2 id="stdboolh이란">&lt;stdbool.h&gt;이란</h2>
+<p><code>&lt;stdbool.h&gt;</code>은 C99버전을 기준으로 표준이 된 헤더 파일이다. 이는 C99 버전부터 <code>_Bool</code>이라는 이름으로 불리언 자료형을 지원하기 때문이다. 그래서 <code>&lt;stdbool.h&gt;</code>가 얼마나 유용한 것인지를 생각해봤다.</p>
+<h3 id="자료형의-크기">자료형의 크기</h3>
+<p>표준에 따르면 <code>_Bool</code>은 <code>0</code>과 <code>1</code>을 저장할 수 있는 크기의 자료형이다. 따라서 1비트일 것으로 예상할 수 있으나 많은 현대 프로세서는 비트 단위 어드레싱(addressing)으로 동작하지 않기 때문에 보통 1바이트이다. <code>char</code> 자료형과 같은 크기라는 말이다. 배열이 되어도 다르지 않다. <code>_Bool</code>이 1바이트이면 <code>_Bool[8]</code>는 8바이트이다. 따라서 아래와 같은 결과를 볼 수 있다.</p>
+<div class="highlight"><pre class="chroma"><code class="language-c" data-lang="c"><span class="cm">/*
+</span><span class="cm"> * x86_64-linux-gnu-gcc
+</span><span class="cm"> */</span>
+
+<span class="k">struct</span> <span class="n">aggregation</span>
+<span class="p">{</span>
+    <span class="n">_Bool</span> <span class="n">bools</span><span class="p">[</span><span class="mi">8</span><span class="p">];</span>
+<span class="p">};</span>
+
+<span class="k">struct</span> <span class="n">concise</span>
+<span class="p">{</span>
+    <span class="n">_Bool</span> <span class="nl">b0</span> <span class="p">:</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="n">_Bool</span> <span class="nl">b1</span> <span class="p">:</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="n">_Bool</span> <span class="nl">b2</span> <span class="p">:</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="n">_Bool</span> <span class="nl">b3</span> <span class="p">:</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="n">_Bool</span> <span class="nl">b4</span> <span class="p">:</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="n">_Bool</span> <span class="nl">b5</span> <span class="p">:</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="n">_Bool</span> <span class="nl">b6</span> <span class="p">:</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="n">_Bool</span> <span class="nl">b7</span> <span class="p">:</span> <span class="mi">1</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="k">sizeof</span><span class="p">(</span><span class="n">_Bool</span><span class="p">);</span> <span class="c1">// 1
+</span><span class="c1"></span><span class="k">sizeof</span><span class="p">(</span><span class="kt">char</span><span class="p">);</span> <span class="c1">// 1
+</span><span class="c1"></span><span class="k">sizeof</span><span class="p">(</span><span class="n">_Bool</span><span class="p">[</span><span class="mi">8</span><span class="p">]);</span> <span class="c1">// 8
+</span><span class="c1"></span><span class="k">sizeof</span><span class="p">(</span><span class="kt">char</span><span class="p">[</span><span class="mi">8</span><span class="p">]);</span> <span class="c1">// 8
+</span><span class="c1"></span><span class="k">sizeof</span><span class="p">(</span><span class="k">struct</span> <span class="n">aggregation</span><span class="p">);</span> <span class="c1">// 8
+</span><span class="c1"></span><span class="k">sizeof</span><span class="p">(</span><span class="k">struct</span> <span class="n">concise</span><span class="p">);</span> <span class="c1">// 1
+</span></code></pre></div><h3 id="의도-전달">의도 전달</h3>
+<p><code>bool</code>이라는 이름은 <code>true</code>와 <code>false</code>의 값 중 하나를 가질 것을 알려주고 있다. 따라서 '의도 전달'의 목적으로 굉장히 유용할 것이라 생각했다. <code>if (available(data))</code>보다 <code>if (available(data) == true)</code>같은 표현이 더 명확하다. 사용하면서 큰 문제를 발견하지 못 했지만 실험 중에 큰 문제가 잠재되어 있었다는 것을 알았다. 근본적인 문제는 C의 기반에 불리언 자료형이 존재하지 않는다는 것이다. 구체적으로, C의 표준 라이브러리는 <code>_Bool</code>을 전혀 사용하고 있지 않고, 고려하고 있지 않다. 아래 예시를 보자.</p>
+<div class="highlight"><pre class="chroma"><code class="language-c" data-lang="c"><span class="cp">#include</span> <span class="cpf">&lt;ctype.h&gt;</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;stdbool.h&gt;</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp">
+</span><span class="cp"></span>
+<span class="kt">int</span>     <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">isalpha</span><span class="p">(</span><span class="sc">&#39;a&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="nb">true</span><span class="p">)</span>
+        <span class="n">exit</span><span class="p">(</span><span class="n">EXIT_SUCCESS</span><span class="p">);</span>
+    <span class="n">exit</span><span class="p">(</span><span class="n">EXIT_FAILURE</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div><p>위 코드는 <code>EXIT_SUCCESS</code>로 종료될 것 같지만 시스템에 따라 <code>EXIT_FAILURE</code>로 종료된다. 상당수의 시스템에서 <code>EXIT_FAILURE</code>로 종료될 것이라 예측하고 있다. C의 표준 라이브러리는 <code>_Bool</code>이 정의되기 전에 작성되어있다. 또한 다양한 이유로 인해 참과 거짓을 <code>int</code> 자료형으로 나타낸다. 이 전통이 <code>_Bool</code>과 부딪치면서 직관적이지 않는 결과를 만들어 낸다. 위 예시의 <code>isalpha()</code>는 <code>int</code> 자료형을 반환한다. 참일 경우 0이 아닌 값(non-zero value)을, 거짓일 경우 0을 반환한다. 모든 C의 문법에서 0이 아닌 값은 참과 같다고 간주한다. 따라서 <code>isalpha()</code>의 반환값은 <code>1</code>이 아니어도 된다. <code>0</code>만 아니면 되기 때문이다. <code>_Bool</code>을 제외한 모든 것이 이렇게 동작하여 그 동안 아무런 문제가 없었다. 다른 언어와 다르게 C에서 <code>_Bool</code>이라는 자료형은 굉장히 이질적인 것이다. 위 예제의 논리는 아래와 같다.</p>
+<div class="highlight"><pre class="chroma"><code class="language-c" data-lang="c"><span class="n">isalpha</span><span class="p">(</span><span class="sc">&#39;a&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="nb">true</span><span class="p">;</span>
+<span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="mi">1024</span> <span class="o">==</span> <span class="p">(</span><span class="n">_Bool</span><span class="p">)</span><span class="mi">1</span><span class="p">;</span> <span class="c1">// isalpha()가 0이 아닌 어떤 값을 반환
+</span><span class="c1"></span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="mi">1024</span> <span class="o">==</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="mi">1</span><span class="p">;</span> <span class="c1">// integer promotion rule
+</span><span class="c1"></span><span class="mi">0</span><span class="p">;</span> <span class="c1">// 결과는 0이 된다.
+</span></code></pre></div><p>마치 모든 C 문법이 <code>_Bool</code>의 존재를 거부하는 것 같다.</p>
+<h3 id="결론">결론</h3>
+<p>C의 표준 라이브러리나 표준 라이브러리의 방식을 따르는 것들과 <code>_Bool</code>, <code>&lt;stdbool.h&gt;</code>를 같이 쓰는면 심각한 오류를 발생시킬 수 있다. '의도 전달'을 위해 <code>_Bool</code> 관련 작업을 할 경우 충분한 주의가 필요하다.</p>
+</article><section class="article labels"><a class="category" href=/categories/c/>C</a><a class="tag" href=/tags/til/>TIL</a></section></div>
+<div class="article bottom"><section class="article navigation"><p><a class="link" href="/article/algorithm/%EA%B0%80%EC%9E%A5-%ED%81%B0-%EC%A0%95%EC%82%AC%EA%B0%81%ED%98%95-%EC%B0%BE%EA%B8%B0/"><span class="li iconfont icon-article"></span>가장 큰 정사각형 찾기</a></p><p><a class="link" href="/article/c/c99-_bool-type/"><span class="li iconfont icon-article"></span>C99 _Bool Type</a></p></section></div></section><section id="footer"><div class="footer-wrap">
+    <p class="copyright">/dev/log</p>
+    <p class="powerby"><span>Powered by </span><a href="https://gohugo.io" 
+        target="_blank">Hugo</a><span> and the </span><a href="https://themes.gohugo.io/hugo-notepadium/" 
+        target="_blank">Notepadium</a></p>
+</div></section><script defer type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity="sha384-e/4/LvThKH1gwzXhdbY2AsjR3rm7LHWyhIG5C0jiRfn8AN2eTN5ILeztWw0H9jmN" crossorigin="anonymous"></script>
+        <script
+            type="text/x-mathjax-config">MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });</script><script src="/js/hljs.min.0799348a91dce12c6be4a73f943cfe78f181f4e6f6ec35c4af0fca1de377879f77cfab03c30f03a174d675737b5a9314.js" integrity="sha384-B5k0ipHc4Sxr5Kc/lDz&#43;ePGB9Ob27DXErw/KHeN3h593z6sDww8DoXTWdXN7WpMU"></script><script>hljs.initHighlightingOnLoad();</script></body>
+
+</html>

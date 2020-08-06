@@ -12,10 +12,10 @@
     
     <item>
       <title>바이트와 니블</title>
-      <link>/til/%EB%B0%94%EC%9D%B4%ED%8A%B8%EC%99%80-%EB%8B%88%EB%B8%94/</link>
+      <link>/article/c/%EB%B0%94%EC%9D%B4%ED%8A%B8%EC%99%80-%EB%8B%88%EB%B8%94/</link>
       <pubDate>Sun, 15 Mar 2020 00:00:00 +0900</pubDate>
       
-      <guid>/til/%EB%B0%94%EC%9D%B4%ED%8A%B8%EC%99%80-%EB%8B%88%EB%B8%94/</guid>
+      <guid>/article/c/%EB%B0%94%EC%9D%B4%ED%8A%B8%EC%99%80-%EB%8B%88%EB%B8%94/</guid>
       <description>Byte The size of the byte has historically been hardware dependent and no definitive standards existed that mandated the size. - [Byte - Wikipedia] 1 바이트는 8 비트가 아닐 수 있다! 초기에는 1 비트에서 48 비트까지 다양하게 쓰였다. 이 후 IEEE에서 2</description>
       
     </item>

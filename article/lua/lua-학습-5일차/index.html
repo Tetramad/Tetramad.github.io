@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en"><meta charset="utf-8"><meta name="generator" content="Hugo 0.68.3" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<meta name="supported-color-schemes" content="light dark"><title>Lua 학습 5일차&nbsp;&ndash;&nbsp;/dev/log</title><link rel="stylesheet" href="/css/core.min.e423c83b21da92bb4e8bb830c9f1f244c55526656580aee89a97a9a3286de39f5329f5710761b5118b808bb4ad342ff6.css" integrity="sha384-5CPIOyHakrtOi7gwyfHyRMVVJmVlgK7ompepoyht459TKfVxB2G1EYuAi7StNC/2"><meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Lua 학습 5일차" /><body><section id="header">
+    <div class="header wrap"><span class="header left-side"><a class="site home" href="/"><span class="site name">/dev/log</span></a></span>
+        <span class="header right-side"><div class="nav wrap"><nav class="nav"><a class="nav item" href="/categories/">Categories</a><a class="nav item" href="/tags/">Tags</a></nav></div></span></div></section><section id="content"><div class="article-container"><section class="article header">
+    <h1 class="article title">Lua 학습 5일차</h1><p class="article date">2020-05-18</p></section><article class="article markdown-body"><h2 id="c-api-basic">C API Basic</h2>
+<h3 id="환경-설정">환경 설정</h3>
+<h4 id="현재-사용-중인-환경">현재 사용 중인 환경</h4>
+<table>
+<thead>
+<tr>
+<th align="right"></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="right">OS</td>
+<td align="left">WSL Ubuntu 20.04LTS</td>
+</tr>
+<tr>
+<td align="right">Package Manager</td>
+<td align="left">apt 2.0.2 (amd64)</td>
+</tr>
+<tr>
+<td align="right">C Compiler</td>
+<td align="left">gcc (Ubuntu 9.3.0-10ubuntu2) 9.3.0</td>
+</tr>
+<tr>
+<td align="right">Lua</td>
+<td align="left">Lua 5.3.3</td>
+</tr>
+</tbody>
+</table>
+<h4 id="설치한-패키지">설치한 패키지</h4>
+<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">apt install gcc lua5.3 liblua5.3-dev
+</code></pre></div><ul>
+<li>gcc/focal,now 4:9.3.0-1ubuntu2 amd64 [installed]
+<ul>
+<li>C 컴파일러</li>
+</ul>
+</li>
+<li>lua5.3/focal,now 5.3.3-1.1ubuntu2 amd64 [installed]
+<ul>
+<li>Lua 컴파일러와 REPL</li>
+</ul>
+</li>
+<li>liblua5.3-dev/focal,now 5.3.3-1.1ubuntu2 amd64 [installed]
+<ul>
+<li>Lua 라이브러리와 소스</li>
+</ul>
+</li>
+</ul>
+<h3 id="lua-api의-기본-체계">Lua API의 기본 체계</h3>
+<p>Lua의 C API는 global variable을 사용하지 않는다. 대신, <code>lua_State</code>라는 구조체를 이용하여 상태를 저장한다. <code>lua_newstate</code> 함수로 새로운 Lua 환경을 생성할 수 있다. <code>lua_State</code>라는 데이터로 제어되기 때문에 독립된 여러 Lua 환경을 생성할 수 있다.</p>
+<p>Lua와 C 사이의 데이터 전달은 stack 구조를 통해 이루어진다.</p>
+<h3 id="몇-가지-api">몇 가지 API</h3>
+<div class="highlight"><pre class="chroma"><code class="language-c" data-lang="c"><span class="cm">/*
+</span><span class="cm"> * In lua.h
+</span><span class="cm"> */</span>
+<span class="n">lua_State</span> <span class="o">*</span><span class="nf">lua_newstate</span><span class="p">(</span><span class="n">lua_Alloc</span> <span class="n">f</span><span class="p">,</span> <span class="kt">void</span> <span class="o">*</span><span class="n">ud</span><span class="p">);</span>
+<span class="kt">void</span> <span class="nf">lua_pushinteger</span><span class="p">(</span><span class="n">lua_State</span> <span class="o">*</span><span class="n">L</span><span class="p">,</span> <span class="n">lua_Integer</span> <span class="n">n</span><span class="p">);</span>
+<span class="kt">void</span> <span class="nf">lua_setglobal</span><span class="p">(</span><span class="n">lua_State</span> <span class="o">*</span><span class="n">L</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">name</span><span class="p">);</span>
+
+<span class="cm">/*
+</span><span class="cm"> * In lauxlib.h
+</span><span class="cm"> */</span>
+<span class="n">lua_State</span> <span class="o">*</span><span class="nf">luaL_newstate</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+<span class="kt">void</span> <span class="nf">luaL_openlibs</span><span class="p">(</span><span class="n">lua_State</span> <span class="o">*</span><span class="n">L</span><span class="p">);</span>
+
+</code></pre></div><p><code>lua_newstate</code>는 위에서 말한 것처럼 새로운 lua 환경을 생성한다. 생성할 때 allocator가 필요한 데, 표준 C의 global allocator를 사용하려면 <code>realloc</code>를 API에 맞게 랩핑하거나 <code>lauxlib.h</code>에 있는 <code>luaL_newstate</code>를 사용하면 된다.</p>
+<p>새로운 Lua 환경은 bulitin 기능들도 없는 순수한 환경이기 때문에 builtin 라이브러리와 표준</p>
+<p>더 자세한 API 설명은 공식 메뉴얼을 확인하면 된다.</p>
+<h3 id="간단한-repl">간단한 REPL</h3>
+<h4 id="소스-코드">소스 코드</h4>
+<div class="highlight"><pre class="chroma"><code class="language-c" data-lang="c"><span class="cm">/*
+</span><span class="cm"> * repl.c
+</span><span class="cm"> */</span>
+<span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;string.h&gt;</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;lua5.3/lauxlib.h&gt;</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;lua5.3/lua.h&gt;</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;lua5.3/lualib.h&gt;</span><span class="cp">
+</span><span class="cp"></span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
+	<span class="kt">char</span> <span class="n">buff</span><span class="p">[</span><span class="mi">256</span><span class="p">];</span> <span class="kt">int</span> <span class="n">error</span><span class="p">;</span>
+	<span class="n">lua_Number</span> <span class="n">num</span> <span class="o">=</span> <span class="mi">42</span><span class="p">;</span>
+	<span class="n">lua_State</span> <span class="o">*</span><span class="n">L</span> <span class="o">=</span> <span class="n">luaL_newstate</span><span class="p">();</span>
+	<span class="n">luaL_openlibs</span><span class="p">(</span><span class="n">L</span><span class="p">);</span>
+	<span class="n">printf</span><span class="p">(</span><span class="s">&#34;&gt; &#34;</span><span class="p">);</span>
+	<span class="k">while</span> <span class="p">(</span><span class="n">fgets</span><span class="p">(</span><span class="n">buff</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">buff</span><span class="p">),</span> <span class="n">stdin</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">NULL</span><span class="p">)</span> <span class="p">{</span>
+		<span class="k">if</span> <span class="p">((</span><span class="n">error</span> <span class="o">=</span> <span class="n">luaL_loadstring</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">buff</span><span class="p">))</span> <span class="o">!=</span> <span class="n">LUA_OK</span>
+				<span class="o">||</span> <span class="p">(</span><span class="n">error</span> <span class="o">=</span> <span class="n">lua_pcall</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span> <span class="o">!=</span> <span class="n">LUA_OK</span><span class="p">)</span> <span class="p">{</span>
+			<span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s">&#34;%s</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">lua_tostring</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">));</span>
+			<span class="n">lua_pop</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+		<span class="p">}</span>
+		<span class="n">printf</span><span class="p">(</span><span class="s">&#34;&gt; &#34;</span><span class="p">);</span>
+	<span class="p">}</span>
+	<span class="n">lua_close</span><span class="p">(</span><span class="n">L</span><span class="p">);</span>
+	<span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div><h4 id="compile">Compile</h4>
+<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">gcc -o repl repl.c -llua5.3
+</code></pre></div><h3 id="lua의-stack-체험해보기">Lua의 stack 체험해보기</h3>
+<p>REPL 코드에서 <code>luaL_openlibs</code> 호출 다음 줄에 아래 두 줄을 추가한다.</p>
+<div class="highlight"><pre class="chroma"><code class="language-c" data-lang="c"><span class="n">lua_pushinteger</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">num</span><span class="p">);</span>
+<span class="n">lua_setglobal</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="s">&#34;life&#34;</span><span class="p">);</span>
+</code></pre></div><p>다시 컴파일 한 후 REPL을 실행해서 <code>life</code> 변수의 값을 확인해보자.</p>
+<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">&gt; print<span class="o">(</span>life<span class="o">)</span>
+<span class="m">42</span>
+</code></pre></div><h2 id="참고">참고</h2>
+<p><a href="https://dcc.ufrj.br/~fabiom/lua/12APIBasics.pdf">https://dcc.ufrj.br/~fabiom/lua/12APIBasics.pdf</a><br>
+<a href="http://www.lua.org/manual/5.3/">http://www.lua.org/manual/5.3/</a></p>
+</article><section class="article labels"><a class="category" href=/categories/lua/>Lua</a><a class="tag" href=/tags/learn/>Learn</a></section></div>
+<div class="article bottom"><section class="article navigation"><p><a class="link" href="/article/lua/lua-%ED%95%99%EC%8A%B5-6%EC%9D%BC%EC%B0%A8/"><span class="li iconfont icon-article"></span>Lua 학습 6일차</a></p><p><a class="link" href="/article/lua/lua-%ED%95%99%EC%8A%B5-4%EC%9D%BC%EC%B0%A8/"><span class="li iconfont icon-article"></span>Lua 학습 4일차</a></p></section></div></section><section id="footer"><div class="footer-wrap">
+    <p class="copyright">/dev/log</p>
+    <p class="powerby"><span>Powered by </span><a href="https://gohugo.io" 
+        target="_blank">Hugo</a><span> and the </span><a href="https://themes.gohugo.io/hugo-notepadium/" 
+        target="_blank">Notepadium</a></p>
+</div></section><script defer type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity="sha384-e/4/LvThKH1gwzXhdbY2AsjR3rm7LHWyhIG5C0jiRfn8AN2eTN5ILeztWw0H9jmN" crossorigin="anonymous"></script>
+        <script
+            type="text/x-mathjax-config">MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });</script><script src="/js/hljs.min.0799348a91dce12c6be4a73f943cfe78f181f4e6f6ec35c4af0fca1de377879f77cfab03c30f03a174d675737b5a9314.js" integrity="sha384-B5k0ipHc4Sxr5Kc/lDz&#43;ePGB9Ob27DXErw/KHeN3h593z6sDww8DoXTWdXN7WpMU"></script><script>hljs.initHighlightingOnLoad();</script></body>
+
+</html>

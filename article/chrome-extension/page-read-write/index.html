@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en"><meta charset="utf-8"><meta name="generator" content="Hugo 0.68.3" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<meta name="supported-color-schemes" content="light dark"><title>Day2: chrome extension으로 사용자가 보고있는 페이지 수정하기&nbsp;&ndash;&nbsp;/dev/log</title><link rel="stylesheet" href="/css/core.min.e423c83b21da92bb4e8bb830c9f1f244c55526656580aee89a97a9a3286de39f5329f5710761b5118b808bb4ad342ff6.css" integrity="sha384-5CPIOyHakrtOi7gwyfHyRMVVJmVlgK7ompepoyht459TKfVxB2G1EYuAi7StNC/2"><meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Day2: chrome extension으로 사용자가 보고있는 페이지 수정하기" /><body><section id="header">
+    <div class="header wrap"><span class="header left-side"><a class="site home" href="/"><span class="site name">/dev/log</span></a></span>
+        <span class="header right-side"><div class="nav wrap"><nav class="nav"><a class="nav item" href="/categories/">Categories</a><a class="nav item" href="/tags/">Tags</a></nav></div></span></div></section><section id="content"><div class="article-container"><section class="article header">
+    <h1 class="article title">Day2: chrome extension으로 사용자가 보고있는 페이지 수정하기</h1><p class="article date">2020-08-06</p></section><article class="article markdown-body"><h2 id="사용자가-보고-있는-페이지-접근하기">사용자가 보고 있는 페이지 접근하기</h2>
+<p>사용자가 보고 있는 페이지에 접근하려면 <code>chrome.tabs.execute...</code> API를 이용하거나
+<code>manifest.json</code> 파일의 <code>&quot;content_scripts&quot;</code> 부분을 이용해야한다.</p>
+<p><strong>사용자가 보고 있는 페이지 접근하기</strong></p>
+<ul>
+<li><code>chrome.tabs.executeFile</code> 또는 <code>chrome.tabs.executeScript</code>를 이용해서 실행하기</li>
+<li><code>&quot;content_scripts&quot;</code>에 실행할 파일 추가하기</li>
+</ul>
+<p>위 두 가지 중 하나의 방법으로 실행한 코드만 사용자가 보고 있는 페이지에 접근할
+수 있다.</p>
+<h2 id="수정해보기">수정해보기</h2>
+<p>접근하는 것을 성공하면 수정하는 것은 JS로 HTML 수정하는 것이 전부이다.</p>
+<p>하지만 웹은 잘 못 해서 패스!</p>
+</article><section class="article labels"><a class="category" href=/categories/chrome-extension/>chrome-extension</a><a class="tag" href=/tags/learn/>Learn</a></section></div>
+<div class="article bottom"><section class="article navigation"><p><a class="link" href="/article/chrome-extension/key-value_stroage/"><span class="li iconfont icon-article"></span>Day1: chrome extension에 key-value 저장하기</a></p></section></div></section><section id="footer"><div class="footer-wrap">
+    <p class="copyright">/dev/log</p>
+    <p class="powerby"><span>Powered by </span><a href="https://gohugo.io" 
+        target="_blank">Hugo</a><span> and the </span><a href="https://themes.gohugo.io/hugo-notepadium/" 
+        target="_blank">Notepadium</a></p>
+</div></section><script defer type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity="sha384-e/4/LvThKH1gwzXhdbY2AsjR3rm7LHWyhIG5C0jiRfn8AN2eTN5ILeztWw0H9jmN" crossorigin="anonymous"></script>
+        <script
+            type="text/x-mathjax-config">MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });</script><script src="/js/hljs.min.0799348a91dce12c6be4a73f943cfe78f181f4e6f6ec35c4af0fca1de377879f77cfab03c30f03a174d675737b5a9314.js" integrity="sha384-B5k0ipHc4Sxr5Kc/lDz&#43;ePGB9Ob27DXErw/KHeN3h593z6sDww8DoXTWdXN7WpMU"></script><script>hljs.initHighlightingOnLoad();</script></body>
+
+</html>

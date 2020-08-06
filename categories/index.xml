@@ -5,27 +5,77 @@
     <link>/categories/</link>
     <description>Recent content in Categories on /dev/log</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Wed, 20 May 2020 21:01:59 +0900</lastBuildDate>
+    <lastBuildDate>Thu, 06 Aug 2020 13:39:59 +0900</lastBuildDate>
     
         <atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>TIL</title>
-      <link>/categories/til/</link>
-      <pubDate>Wed, 20 May 2020 21:01:59 +0900</pubDate>
+      <title>C</title>
+      <link>/categories/c/</link>
+      <pubDate>Thu, 06 Aug 2020 13:39:59 +0900</pubDate>
       
-      <guid>/categories/til/</guid>
+      <guid>/categories/c/</guid>
       <description></description>
       
     </item>
     
     <item>
-      <title>Reference</title>
-      <link>/categories/reference/</link>
-      <pubDate>Fri, 08 May 2020 00:06:36 +0900</pubDate>
+      <title>chrome-extension</title>
+      <link>/categories/chrome-extension/</link>
+      <pubDate>Thu, 06 Aug 2020 13:39:59 +0900</pubDate>
       
-      <guid>/categories/reference/</guid>
+      <guid>/categories/chrome-extension/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Lua</title>
+      <link>/categories/lua/</link>
+      <pubDate>Wed, 20 May 2020 21:01:59 +0900</pubDate>
+      
+      <guid>/categories/lua/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Web</title>
+      <link>/categories/web/</link>
+      <pubDate>Thu, 07 May 2020 00:13:45 +0900</pubDate>
+      
+      <guid>/categories/web/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Algorithm</title>
+      <link>/categories/algorithm/</link>
+      <pubDate>Mon, 27 Apr 2020 00:00:00 +0900</pubDate>
+      
+      <guid>/categories/algorithm/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>git</title>
+      <link>/categories/git/</link>
+      <pubDate>Sun, 12 Apr 2020 00:00:00 +0900</pubDate>
+      
+      <guid>/categories/git/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>C&#43;&#43;</title>
+      <link>/categories/c&#43;&#43;/</link>
+      <pubDate>Mon, 30 Dec 2019 00:00:00 +0900</pubDate>
+      
+      <guid>/categories/c&#43;&#43;/</guid>
       <description></description>
       
     </item>

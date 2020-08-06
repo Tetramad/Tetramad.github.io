@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en"><meta charset="utf-8"><meta name="generator" content="Hugo 0.68.3" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<meta name="supported-color-schemes" content="light dark"><title>CMake와 C&#43;&#43; 오버로딩&nbsp;&ndash;&nbsp;/dev/log</title><link rel="stylesheet" href="/css/core.min.e423c83b21da92bb4e8bb830c9f1f244c55526656580aee89a97a9a3286de39f5329f5710761b5118b808bb4ad342ff6.css" integrity="sha384-5CPIOyHakrtOi7gwyfHyRMVVJmVlgK7ompepoyht459TKfVxB2G1EYuAi7StNC/2"><meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="CMake와 C&#43;&#43; 오버로딩" /><body><section id="header">
+    <div class="header wrap"><span class="header left-side"><a class="site home" href="/"><span class="site name">/dev/log</span></a></span>
+        <span class="header right-side"><div class="nav wrap"><nav class="nav"><a class="nav item" href="/categories/">Categories</a><a class="nav item" href="/tags/">Tags</a></nav></div></span></div></section><section id="content"><div class="article-container"><section class="article header">
+    <h1 class="article title">CMake와 C++ 오버로딩</h1><p class="article date">2019-12-13</p></section><article class="article markdown-body"><p>CMake 모듈 중 <code>CheckCXXSymbolExists</code>에서 <code>check_cxx_symbol_exists</code>메크로는 아래와 같은 코드를 생성하여 확인한다. 그렇기에 C++의 오버로딩된 함수등을 판별할 수 없다.</p>
+<div class="highlight"><pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="c1">// check_cxx_symbol_exists(&lt;symbol&gt; &lt;files&gt; &lt;variable&gt;)
+</span><span class="c1"></span><span class="cm">/* */</span>
+<span class="cp">#include</span> <span class="cpf">&lt;file&gt;</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;file&gt;</span><span class="cp">
+</span><span class="cp"></span><span class="p">...</span>
+<span class="cp">#include</span> <span class="cpf">&lt;file&gt;</span><span class="cp">
+</span><span class="cp"></span>
+<span class="kt">int</span> <span class="n">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span><span class="o">**</span> <span class="n">argv</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="n">argv</span><span class="p">;</span>
+<span class="cp">#ifndef symbol
+</span><span class="cp"></span>  <span class="k">return</span> <span class="p">((</span><span class="kt">int</span><span class="o">*</span><span class="p">)(</span><span class="o">&amp;</span><span class="n">symbol</span><span class="p">))[</span><span class="n">argc</span><span class="p">];</span>
+<span class="cp">#else
+</span><span class="cp"></span>  <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="n">argc</span><span class="p">;</span>
+  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="cp">#endif
+</span><span class="cp"></span><span class="p">}</span>
+<span class="c1">// return 0 -&gt; not found, return not 0 -&gt; found.
+</span></code></pre></div></article><section class="article labels"><a class="category" href=/categories/c&#43;&#43;/>C&#43;&#43;</a><a class="tag" href=/tags/cmake/>CMake</a></section></div>
+<div class="article bottom"><section class="article navigation"><p><a class="link" href="/article/c&#43;&#43;/c&#43;&#43;%EC%9D%98-%EA%B4%84%ED%98%B8-%EC%82%AC%EB%9E%91/"><span class="li iconfont icon-article"></span>C++의 괄호 사랑</a></p></section></div></section><section id="footer"><div class="footer-wrap">
+    <p class="copyright">/dev/log</p>
+    <p class="powerby"><span>Powered by </span><a href="https://gohugo.io" 
+        target="_blank">Hugo</a><span> and the </span><a href="https://themes.gohugo.io/hugo-notepadium/" 
+        target="_blank">Notepadium</a></p>
+</div></section><script defer type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity="sha384-e/4/LvThKH1gwzXhdbY2AsjR3rm7LHWyhIG5C0jiRfn8AN2eTN5ILeztWw0H9jmN" crossorigin="anonymous"></script>
+        <script
+            type="text/x-mathjax-config">MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });</script><script src="/js/hljs.min.0799348a91dce12c6be4a73f943cfe78f181f4e6f6ec35c4af0fca1de377879f77cfab03c30f03a174d675737b5a9314.js" integrity="sha384-B5k0ipHc4Sxr5Kc/lDz&#43;ePGB9Ob27DXErw/KHeN3h593z6sDww8DoXTWdXN7WpMU"></script><script>hljs.initHighlightingOnLoad();</script></body>
+
+</html>

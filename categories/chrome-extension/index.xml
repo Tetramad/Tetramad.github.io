@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>chrome-extension on /dev/log</title>
+    <link>/categories/chrome-extension/</link>
+    <description>Recent content in chrome-extension on /dev/log</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Thu, 06 Aug 2020 13:39:59 +0900</lastBuildDate>
+    
+        <atom:link href="/categories/chrome-extension/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Day2: chrome extension으로 사용자가 보고있는 페이지 수정하기</title>
+      <link>/article/chrome-extension/page-read-write/</link>
+      <pubDate>Thu, 06 Aug 2020 13:39:59 +0900</pubDate>
+      
+      <guid>/article/chrome-extension/page-read-write/</guid>
+      <description>사용자가 보고 있는 페이지 접근하기 사용자가 보고 있는 페이지에 접근하려면 chrome.tabs.execute... API를 이용하거나 manifest.json 파일의 &amp;quot;content_scripts&amp;quot; 부분을 이용해야한다. 사용자가 보고 있는 페이지 접근</description>
+      
+    </item>
+    
+    <item>
+      <title>Day1: chrome extension에 key-value 저장하기</title>
+      <link>/article/chrome-extension/key-value_stroage/</link>
+      <pubDate>Fri, 03 Jul 2020 13:50:14 +0900</pubDate>
+      
+      <guid>/article/chrome-extension/key-value_stroage/</guid>
+      <description>manifest.json 작성하기 이 확장 프로그램이 어떤 프로그램인지 어떤 일을 할 수 있는 지를 명시하는 파일이다. 페이지 수정 등의 접근 권한도 이 파일에서 적힌 내용만 허용하기 때문에 잘</description>
+      
+    </item>
+    
+  </channel>
+</rss>

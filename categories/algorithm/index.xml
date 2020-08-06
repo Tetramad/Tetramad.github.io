@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Algorithm on /dev/log</title>
+    <link>/categories/algorithm/</link>
+    <description>Recent content in Algorithm on /dev/log</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Mon, 27 Apr 2020 00:00:00 +0900</lastBuildDate>
+    
+        <atom:link href="/categories/algorithm/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>가장 큰 정사각형 찾기</title>
+      <link>/article/algorithm/%EA%B0%80%EC%9E%A5-%ED%81%B0-%EC%A0%95%EC%82%AC%EA%B0%81%ED%98%95-%EC%B0%BE%EA%B8%B0/</link>
+      <pubDate>Mon, 27 Apr 2020 00:00:00 +0900</pubDate>
+      
+      <guid>/article/algorithm/%EA%B0%80%EC%9E%A5-%ED%81%B0-%EC%A0%95%EC%82%AC%EA%B0%81%ED%98%95-%EC%B0%BE%EA%B8%B0/</guid>
+      <description>첫 번째 접근 방법 정사각형을 올려놓고 가능한 정사각형인지 판단해보자. 가장 큰 정사각형에서 가장 작은 정사각형까지 바꿔가면서 진행한다. 정사각형을 올려보고 안</description>
+      
+    </item>
+    
+  </channel>
+</rss>

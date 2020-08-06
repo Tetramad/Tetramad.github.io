@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Articles on /dev/log</title>
+    <link>/article/</link>
+    <description>Recent content in Articles on /dev/log</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Thu, 06 Aug 2020 13:39:59 +0900</lastBuildDate>
+    
+        <atom:link href="/article/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Day2: chrome extension으로 사용자가 보고있는 페이지 수정하기</title>
+      <link>/article/chrome-extension/page-read-write/</link>
+      <pubDate>Thu, 06 Aug 2020 13:39:59 +0900</pubDate>
+      
+      <guid>/article/chrome-extension/page-read-write/</guid>
+      <description>사용자가 보고 있는 페이지 접근하기 사용자가 보고 있는 페이지에 접근하려면 chrome.tabs.execute... API를 이용하거나 manifest.json 파일의 &amp;quot;content_scripts&amp;quot; 부분을 이용해야한다. 사용자가 보고 있는 페이지 접근</description>
+      
+    </item>
+    
+    <item>
+      <title>Day1: chrome extension에 key-value 저장하기</title>
+      <link>/article/chrome-extension/key-value_stroage/</link>
+      <pubDate>Fri, 03 Jul 2020 13:50:14 +0900</pubDate>
+      
+      <guid>/article/chrome-extension/key-value_stroage/</guid>
+      <description>manifest.json 작성하기 이 확장 프로그램이 어떤 프로그램인지 어떤 일을 할 수 있는 지를 명시하는 파일이다. 페이지 수정 등의 접근 권한도 이 파일에서 적힌 내용만 허용하기 때문에 잘</description>
+      
+    </item>
+    
+    <item>
+      <title>Lua 학습 7일차</title>
+      <link>/article/lua/lua-%ED%95%99%EC%8A%B5-7%EC%9D%BC%EC%B0%A8/</link>
+      <pubDate>Wed, 20 May 2020 21:01:59 +0900</pubDate>
+      
+      <guid>/article/lua/lua-%ED%95%99%EC%8A%B5-7%EC%9D%BC%EC%B0%A8/</guid>
+      <description>Extending Lua Lua에서 C로 작성된 기능을 사용하는 방법을 배웠다. 두 가지 방법을 사용해 보았다. C에서 Lua API를 통해 Lua Instance로 C Function 사용 Lua에서 Lua A</description>
+      
+    </item>
+    
+    <item>
+      <title>Lua 학습 6일차</title>
+      <link>/article/lua/lua-%ED%95%99%EC%8A%B5-6%EC%9D%BC%EC%B0%A8/</link>
+      <pubDate>Tue, 19 May 2020 15:47:36 +0900</pubDate>
+      
+      <guid>/article/lua/lua-%ED%95%99%EC%8A%B5-6%EC%9D%BC%EC%B0%A8/</guid>
+      <description>Embedding Lua 오늘은 Lua를 C언어로 작성된 프로그램에서 사용하는 방법을 공부했다. 그 중 설정 파일은 Lua로 작성하는 것을 실습해보았다. 지금부터는 강의 자료보다 매</description>
+      
+    </item>
+    
+    <item>
+      <title>Lua 학습 5일차</title>
+      <link>/article/lua/lua-%ED%95%99%EC%8A%B5-5%EC%9D%BC%EC%B0%A8/</link>
+      <pubDate>Mon, 18 May 2020 15:24:31 +0900</pubDate>
+      
+      <guid>/article/lua/lua-%ED%95%99%EC%8A%B5-5%EC%9D%BC%EC%B0%A8/</guid>
+      <description>C API Basic 환경 설정 현재 사용 중인 환경 OS WSL Ubuntu 20.04LTS Package Manager apt 2.0.2 (amd64) C Compiler gcc (Ubuntu 9.3.0-10ubuntu2) 9.3.0 Lua Lua 5.3.3 설치한 패키지 apt install gcc lua5.3 liblua5.3-dev gcc/focal,now 4:9.3.0-1ubuntu2 amd64 [installed] C 컴파일러 lua5.3/focal,now 5.3.3-1.1ubuntu2 amd64 [installed] Lua 컴파일러와 REPL liblua5.3-dev/focal,now 5.3.3-1.1ubuntu2 amd64 [installed] Lua 라</description>
+      
+    </item>
+    
+    <item>
+      <title>Lua 학습 4일차</title>
+      <link>/article/lua/lua-%ED%95%99%EC%8A%B5-4%EC%9D%BC%EC%B0%A8/</link>
+      <pubDate>Fri, 15 May 2020 16:03:13 +0900</pubDate>
+      
+      <guid>/article/lua/lua-%ED%95%99%EC%8A%B5-4%EC%9D%BC%EC%B0%A8/</guid>
+      <description>Module Lua에서는 여러 모듈로 나누어 프로그램을 관리한다. 모듈을 파일로 존재한다. 사용을 위해 불러오면 하나의 table로 관리된다. 파일은 각각 chunk를</description>
+      
+    </item>
+    
+    <item>
+      <title>Lua 학습 3일차</title>
+      <link>/article/lua/lua-%ED%95%99%EC%8A%B5-3%EC%9D%BC%EC%B0%A8/</link>
+      <pubDate>Thu, 14 May 2020 11:19:02 +0900</pubDate>
+      
+      <guid>/article/lua/lua-%ED%95%99%EC%8A%B5-3%EC%9D%BC%EC%B0%A8/</guid>
+      <description>Iterator Lua에서는 3가지 iterator를 사용할 수 있다. 각각 closure iterator, stateless iterator, seedless iterator라 부른다. 우선 iterator가 되기 위한 조건 두 가지. 값을 반</description>
+      
+    </item>
+    
+    <item>
+      <title>Lua 학습 2일차</title>
+      <link>/article/lua/lua-%ED%95%99%EC%8A%B5-2%EC%9D%BC%EC%B0%A8/</link>
+      <pubDate>Wed, 13 May 2020 17:00:43 +0900</pubDate>
+      
+      <guid>/article/lua/lua-%ED%95%99%EC%8A%B5-2%EC%9D%BC%EC%B0%A8/</guid>
+      <description>function function과 variable이 같은 namespace를 사용한다. shadowing도 가능하니 이 점을 주의해야한다. function max(a, b) return (a &amp;gt; b) and a or</description>
+      
+    </item>
+    
+    <item>
+      <title>Lua 학습 1일차</title>
+      <link>/article/lua/lua-%ED%95%99%EC%8A%B5-1%EC%9D%BC%EC%B0%A8/</link>
+      <pubDate>Tue, 12 May 2020 18:36:45 +0900</pubDate>
+      
+      <guid>/article/lua/lua-%ED%95%99%EC%8A%B5-1%EC%9D%BC%EC%B0%A8/</guid>
+      <description>논리 값 true, false와 논리 연산자 and, or not false와 nil을 제외한 모든 값은 true로 취급한다. 따라서 C랑 다르게, JavaScript랑 다르게, 0</description>
+      
+    </item>
+    
+    <item>
+      <title>Javascript Sort Stability</title>
+      <link>/article/web/javascript-sort-stability/</link>
+      <pubDate>Thu, 07 May 2020 00:13:45 +0900</pubDate>
+      
+      <guid>/article/web/javascript-sort-stability/</guid>
+      <description>Stability Stability란 정렬 알고리즘에서 정렬 이후 같은 값 또는 팩터(factor)를 갖는 요소끼리는 정렬 이전과 같은 순서를 유지하는 가를 나타내는 말이다.</description>
+      
+    </item>
+    
+    <item>
+      <title>DOM과 텍스트</title>
+      <link>/article/web/dom%EA%B3%BC-%ED%85%8D%EC%8A%A4%ED%8A%B8/</link>
+      <pubDate>Thu, 30 Apr 2020 16:24:00 +0900</pubDate>
+      
+      <guid>/article/web/dom%EA%B3%BC-%ED%85%8D%EC%8A%A4%ED%8A%B8/</guid>
+      <description>개요 DOM 객체에서 문자열을 얻는 세 가지 방법을 간단히 비교했다. 세 가지 방법은 Node.textContent를 이용하는 방법, Element.inner</description>
+      
+    </item>
+    
+    <item>
+      <title>가장 큰 정사각형 찾기</title>
+      <link>/article/algorithm/%EA%B0%80%EC%9E%A5-%ED%81%B0-%EC%A0%95%EC%82%AC%EA%B0%81%ED%98%95-%EC%B0%BE%EA%B8%B0/</link>
+      <pubDate>Mon, 27 Apr 2020 00:00:00 +0900</pubDate>
+      
+      <guid>/article/algorithm/%EA%B0%80%EC%9E%A5-%ED%81%B0-%EC%A0%95%EC%82%AC%EA%B0%81%ED%98%95-%EC%B0%BE%EA%B8%B0/</guid>
+      <description>첫 번째 접근 방법 정사각형을 올려놓고 가능한 정사각형인지 판단해보자. 가장 큰 정사각형에서 가장 작은 정사각형까지 바꿔가면서 진행한다. 정사각형을 올려보고 안</description>
+      
+    </item>
+    
+    <item>
+      <title>C와 &amp;lt;stdbool.h&amp;gt;</title>
+      <link>/article/c/c%EC%99%80-stdbool.h/</link>
+      <pubDate>Thu, 23 Apr 2020 00:00:00 +0900</pubDate>
+      
+      <guid>/article/c/c%EC%99%80-stdbool.h/</guid>
+      <description>&amp;lt;stdbool.h&amp;gt;이란 &amp;lt;stdbool.h&amp;gt;은 C99버전을 기준으로 표준이 된 헤더 파일이다. 이는 C99 버전부터 _Bool</description>
+      
+    </item>
+    
+    <item>
+      <title>C99 _Bool Type</title>
+      <link>/article/c/c99-_bool-type/</link>
+      <pubDate>Sat, 18 Apr 2020 00:00:00 +0900</pubDate>
+      
+      <guid>/article/c/c99-_bool-type/</guid>
+      <description>_Bool형은 부호가 없는 정수형(unsigned integer type)이다. 랭크(rank)가 가장 낮다. 0과 1만을 저장할 수 있다. 0이 아닌 값을 저장할 경우</description>
+      
+    </item>
+    
+    <item>
+      <title>C float increment/decrement operator</title>
+      <link>/article/c/c-float-increment-decrement-operator/</link>
+      <pubDate>Fri, 17 Apr 2020 00:00:00 +0900</pubDate>
+      
+      <guid>/article/c/c-float-increment-decrement-operator/</guid>
+      <description>float형과 double형에도 사용할 수 있다. ++연산자는 += 1 같은 효과를 내고, --연산자는 -= 1 같은 효과를 낸다. &#39;postfix&#39;와 &#39;pref</description>
+      
+    </item>
+    
+    <item>
+      <title>Git Hooks 실습</title>
+      <link>/article/tool/git-hooks-%EC%8B%A4%EC%8A%B5/</link>
+      <pubDate>Sun, 12 Apr 2020 00:00:00 +0900</pubDate>
+      
+      <guid>/article/tool/git-hooks-%EC%8B%A4%EC%8A%B5/</guid>
+      <description>git hooks hook 파일 디렉토리는 기본적으로 .git/hooks이다. hook 파일 이름은 정해져있다. git help hooks 매뉴얼에서 확인 가능하다. hooks는 &#39;client-side hook&#39;과 &#39;server-side h</description>
+      
+    </item>
+    
+    <item>
+      <title>ISO646 Trigraphs와 Digraphs</title>
+      <link>/article/c/iso646-trigraphs%EC%99%80-digraphs/</link>
+      <pubDate>Sun, 12 Apr 2020 00:00:00 +0900</pubDate>
+      
+      <guid>/article/c/iso646-trigraphs%EC%99%80-digraphs/</guid>
+      <description>C는 8비트 인코딩을 사용한다. ASCII를 사용하는 것이 표준을 정해진 것이 아니다. 이 정의 때문에 대표적으로 문제가 되었던 것이 ISO 646 인코딩이다. 표준를 만들</description>
+      
+    </item>
+    
+    <item>
+      <title>C 함수 반환값에 대한 생각</title>
+      <link>/article/c/c-%ED%95%A8%EC%88%98-%EB%B0%98%ED%99%98%EA%B0%92%EC%97%90-%EB%8C%80%ED%95%9C-%EC%83%9D%EA%B0%81/</link>
+      <pubDate>Tue, 07 Apr 2020 00:00:00 +0900</pubDate>
+      
+      <guid>/article/c/c-%ED%95%A8%EC%88%98-%EB%B0%98%ED%99%98%EA%B0%92%EC%97%90-%EB%8C%80%ED%95%9C-%EC%83%9D%EA%B0%81/</guid>
+      <description>C언어의 반환값 주로 사용되는 반환값 종류 결과 오류코드 이 두 가지 중 우선순위를 두자면 오류코드를 우선적으로 반환해야 한다. 아래 두 예시를 보며 그 이유를 느낄 수 있</description>
+      
+    </item>
+    
+    <item>
+      <title>바이트와 니블</title>
+      <link>/article/c/%EB%B0%94%EC%9D%B4%ED%8A%B8%EC%99%80-%EB%8B%88%EB%B8%94/</link>
+      <pubDate>Sun, 15 Mar 2020 00:00:00 +0900</pubDate>
+      
+      <guid>/article/c/%EB%B0%94%EC%9D%B4%ED%8A%B8%EC%99%80-%EB%8B%88%EB%B8%94/</guid>
+      <description>Byte The size of the byte has historically been hardware dependent and no definitive standards existed that mandated the size. - [Byte - Wikipedia] 1 바이트는 8 비트가 아닐 수 있다! 초기에는 1 비트에서 48 비트까지 다양하게 쓰였다. 이 후 IEEE에서 2</description>
+      
+    </item>
+    
+    <item>
+      <title>C&#43;&#43;의 괄호 사랑</title>
+      <link>/article/c&#43;&#43;/c&#43;&#43;%EC%9D%98-%EA%B4%84%ED%98%B8-%EC%82%AC%EB%9E%91/</link>
+      <pubDate>Mon, 30 Dec 2019 00:00:00 +0900</pubDate>
+      
+      <guid>/article/c&#43;&#43;/c&#43;&#43;%EC%9D%98-%EA%B4%84%ED%98%B8-%EC%82%AC%EB%9E%91/</guid>
+      <description>C++20 람다식(lambda expression). QWERT 키보드의 모든 괄호가 다 들어있다.😎 // lambda until C++20 [ captures ]( params ){ body } // lambda since C++20 [ captures ]&amp;lt; tparam &amp;gt;( params ){ body }</description>
+      
+    </item>
+    
+    <item>
+      <title>CMake와 C&#43;&#43; 오버로딩</title>
+      <link>/article/c&#43;&#43;/cmake%EC%99%80-c&#43;&#43;-%EC%98%A4%EB%B2%84%EB%A1%9C%EB%94%A9/</link>
+      <pubDate>Fri, 13 Dec 2019 00:00:00 +0900</pubDate>
+      
+      <guid>/article/c&#43;&#43;/cmake%EC%99%80-c&#43;&#43;-%EC%98%A4%EB%B2%84%EB%A1%9C%EB%94%A9/</guid>
+      <description>CMake 모듈 중 CheckCXXSymbolExists에서 check_cxx_symbol_exists메크로는 아래와 같은 코드를 생성하여 확인한다.</description>
+      
+    </item>
+    
+  </channel>
+</rss>
