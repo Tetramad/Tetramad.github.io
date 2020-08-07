@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en"><meta charset="utf-8"><meta name="generator" content="Hugo 0.68.3" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<meta name="supported-color-schemes" content="light dark"><title>어셈블리어 정리&nbsp;&ndash;&nbsp;/dev/log</title><link rel="stylesheet" href="/css/core.min.e423c83b21da92bb4e8bb830c9f1f244c55526656580aee89a97a9a3286de39f5329f5710761b5118b808bb4ad342ff6.css" integrity="sha384-5CPIOyHakrtOi7gwyfHyRMVVJmVlgK7ompepoyht459TKfVxB2G1EYuAi7StNC/2"><meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="어셈블리어 정리" /><body><section id="header">
+    <div class="header wrap"><span class="header left-side"><a class="site home" href="/"><span class="site name">/dev/log</span></a></span>
+        <span class="header right-side"><div class="nav wrap"><nav class="nav"><a class="nav item" href="/categories/">Categories</a><a class="nav item" href="/tags/">Tags</a></nav></div></span></div></section><section id="content"><div class="article-container"><section class="article header">
+    <h1 class="article title">어셈블리어 정리</h1><p class="article date">2020-08-06</p></section><article class="article markdown-body"><h2 id="어셈블리어란-무엇인가">어셈블리어란 무엇인가?</h2>
+<blockquote>
+<p>어셈블리어(assembly language) 또는 어셈블러 언어(assembler language)는
+기계어와 일대일 대응이 되는 컴퓨터 프로그래밍의 저급 언어이다. &ndash; 위키백과</p>
+</blockquote>
+<p>일단 &lsquo;기계어와 일대일 대응'이라는 말에 오해가 있을 수 있다. 그래서 영문
+위키백과 내용을 가져와봤다.</p>
+<blockquote>
+<p>In computer programming, assembly language (or assembler language), often
+abreviated asm, is any low-level programming language in which there is a
+very strong correspondence between the instructions in the language and the
+architecture's machine code instructions.</p>
+</blockquote>
+<p>영문 위키백과를 보면 '강한 관련성(very strong correspondence)'라는 표현을
+사용하여 대응 관계가 아닐 수 있다는 점도 표현하고 있다. 또한, 이 관련성이
+언어의 명령(instruction)과 머신 코드 명령간의 관계로 한정하고 있다.</p>
+<p>어셈블리어는 프로그래머로서 다루는 언어 중 가장 기계와 가깝다고 표현할 수 있을
+정도로 기계어에 가깝다. 어셈블리어는 언어의 분류에 더 가깝기도 하다. 우리가 C
+계열 언어라는 표현을 사용하듯이 어셈블리어도 많은 종류가 있다. 저마다 원하는
+것이 달라 수많은 조합의 어셈블리어 환경을 만들어 낸다. 이 점이 어셈블리어가
+어려운 가장 큰 이유라고 생각한다.</p>
+<h2 id="어셈블리어의-환경">어셈블리어의 환경</h2>
+<p>어셈블리어는 하나의 언어를 부르는 호칭도 아니고 하나의 개발 주체가 모든 것을
+결정할 수 있는 언어도 아니다. 어셈블리어는 어셈블러(assembler), 명령어
+집합(instruction set), 프로세서 아키텍처, OS까지 영향을 받는다. 다른 고수준
+언어를 배우는 것처럼 어셈블리어를 배울 수 없다. 게다가 이런 영향으로 특정
+어셈블리어를 배워도 환경이 달라지면 사용할 수 없게 된다.</p>
+<h3 id="어셈블러">어셈블러</h3>
+<p>어셈블리어를 읽어 목적 파일(object file)로 만들어 주는 역할을 하는
+프로그램이다. 해당 어셈블리어가 어떤 문법을 사용하고 어떻게 표현하며 어떻게
+동작할 지를 결정하는 데 가장 큰 영향을 주는 부분이다. 어셈블러는 MASM, NASM,
+vasm, FASM 등 종류가 많다. 각각은 OS에 종속적이거나 프로세서에 종속적이다.
+결과물이 목적 파일의 포맷도 각각 다르다.</p>
+<h3 id="목적-파일object-file">목적 파일(object file)</h3>
+<p>목적 파일은 opcode로 변환하여 특정한 규칙에 따라 정리하여 이후 작업을 진행할 수
+있게 해주는 중간 다리 역할을 한다. 목적 파일도 OS나 특정한 목적에 따라 여러가지
+종류가 있다. 대표적으로 ELF, Mach-O, PE가 있다. 이 세 가지 포맷은 실행 파일
+포맷도 겸하고 있는 포맷이다.</p>
+<h3 id="os에-종속적인-부분">OS에 종속적인 부분</h3>
+<p>어셈블리어가 할 수 있는 일은 많지만 할 수 있다고 다 하는 것은 아니다. 그래서
+자주 사용하는 것이 시스템 콜이다. 이 시스템 콜은 OS마다 규격이 다르기 때문에
+특정 OS에 종속적인 어셈블러는 어셈블리어에 시스템 콜을 추가한다. 당연히 이렇게
+되면 다른 OS에서는 동작하기 힘들다.</p>
+<h3 id="명령어-집합instruction-set">명령어 집합(instruction set)</h3>
+<p>어셈블러 또는 어셈블리어는 지원하는 명령어 집합이 정해져 있다. 따라서 자신이
+사용하고 있는 프로세서가 해당 명령어 집합을 사용 가능한지 어셈블러가 지원하는
+지 등을 알아봐야한다. 많은 프로세서가 서로 다른 여러 명령어 집합을 사용하므로
+어셈블리어를 사용하는 프로그래머는 고려해야할 사항이 더 많아진다.</p>
+<h3 id="표현-방법">표현 방법</h3>
+<p>크게 AT&amp;T 방식과 Intel 방식으로 나누어져있다. 이 표현 방법은 명령어 집합을
+표현하는 방법이라 어셈블리어들끼리 통일된 형태를 보인다는 말이 아니다. 정말로
+명령어 집합을 사용하는 부분만 비슷하다. 이 부분도 똑같지는 않다. 많은
+어셈블리어가 편의를 위해 여러 기능을 추가해 두어서 핵심 부분을 제외하면 다르다.</p>
+<p><a href="https://en.wikipedia.org/wiki/X86_assembly_language#Syntax"target="_blank">https://en.wikipedia.org/wiki/X86_assembly_language#Syntax</a> 참고</p>
+<table>
+<thead>
+<tr>
+<th align="center"></th>
+<th align="center">AT&amp;T</th>
+<th align="center">Intel</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">파라미터 순서</td>
+<td align="center">저장되는 위치가 <strong>나중에</strong> 나온다(<code>mov $5, %eax</code>)</td>
+<td align="center">저장되는 위치가 <strong>먼저</strong> 나온다(<code>mov eax, 5</code>)</td>
+</tr>
+<tr>
+<td align="center">파라미터 크기</td>
+<td align="center">명령어 뒤에 크기가 붙는다(<code>addl $4, $eap</code>)</td>
+<td align="center">사용하는 파라미터의 크기를 보고 어셈블러가 판단한다(<code>add esp, 4</code>, <code>inc qword [var]</code>)</td>
+</tr>
+<tr>
+<td align="center">시길(sigil)</td>
+<td align="center">immediate value의 경우 '$'를, register의 경우 '%'가 붙는다</td>
+<td align="center">어셈블러가 알아서 판단하기 때문에 시길이 없다</td>
+</tr>
+</tbody>
+</table>
+<p>위 내용은 x86 계열의 프로세서에 해당하는 내용이다. 다시 말해 다른 프로세서는
+충분히 다른 표현 방법을 택할 수 있다.</p>
+<h3 id="프로세서">프로세서</h3>
+<p>위 명령어 집합에서 설명한 것처럼 프로세서마다 지원할 수 있는 명령어 집합이
+다르다.</p>
+<h3 id="프로세서-벤더">프로세서 벤더</h3>
+<p>프로세서 벤더가 명령어 집합이나 opcode 등을 제공하지 않고 자사의 어셈블러만
+제공한다면 다른 선택지가 없다. 프로그래머가 그 환경에 맞추어야 한다.</p>
+</article><section class="article labels"><a class="category" href=/categories/assembly/>Assembly</a><a class="tag" href=/tags/learn/>Learn</a></section></div>
+<div class="article bottom"><section class="article navigation"><p><a class="link" href="/article/chrome-extension/page-read-write/"><span class="li iconfont icon-article"></span>Day2: chrome extension으로 사용자가 보고있는 페이지 수정하기</a></p></section></div></section><section id="footer"><div class="footer-wrap">
+    <p class="copyright">/dev/log</p>
+    <p class="powerby"><span>Powered by </span><a href="https://gohugo.io" 
+        target="_blank">Hugo</a><span> and the </span><a href="https://themes.gohugo.io/hugo-notepadium/" 
+        target="_blank">Notepadium</a></p>
+</div></section><script defer type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity="sha384-e/4/LvThKH1gwzXhdbY2AsjR3rm7LHWyhIG5C0jiRfn8AN2eTN5ILeztWw0H9jmN" crossorigin="anonymous"></script>
+        <script
+            type="text/x-mathjax-config">MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });</script><script src="/js/hljs.min.0799348a91dce12c6be4a73f943cfe78f181f4e6f6ec35c4af0fca1de377879f77cfab03c30f03a174d675737b5a9314.js" integrity="sha384-B5k0ipHc4Sxr5Kc/lDz&#43;ePGB9Ob27DXErw/KHeN3h593z6sDww8DoXTWdXN7WpMU"></script><script>hljs.initHighlightingOnLoad();</script></body>
+
+</html>

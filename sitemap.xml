@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml"><url>
-    <loc>/</loc><lastmod>2020-08-06T13:39:59+09:00</lastmod></url><url>
-    <loc>/article/</loc><lastmod>2020-08-06T13:39:59+09:00</lastmod></url><url>
+    <loc>/</loc><lastmod>2020-08-06T13:59:14+09:00</lastmod></url><url>
+    <loc>/article/</loc><lastmod>2020-08-06T13:59:14+09:00</lastmod></url><url>
+    <loc>/categories/assembly/</loc><lastmod>2020-08-06T13:59:14+09:00</lastmod></url><url>
+    <loc>/categories/</loc><lastmod>2020-08-06T13:59:14+09:00</lastmod></url><url>
+    <loc>/tags/learn/</loc><lastmod>2020-08-06T13:59:14+09:00</lastmod></url><url>
+    <loc>/tags/</loc><lastmod>2020-08-06T13:59:14+09:00</lastmod></url><url>
+    <loc>/article/assembly/%EC%96%B4%EC%85%88%EB%B8%94%EB%A6%AC%EC%96%B4-%EC%A0%95%EB%A6%AC/</loc><lastmod>2020-08-06T13:59:14+09:00</lastmod></url><url>
     <loc>/categories/c/</loc><lastmod>2020-08-06T13:39:59+09:00</lastmod></url><url>
-    <loc>/categories/</loc><lastmod>2020-08-06T13:39:59+09:00</lastmod></url><url>
     <loc>/categories/chrome-extension/</loc><lastmod>2020-08-06T13:39:59+09:00</lastmod></url><url>
     <loc>/article/chrome-extension/page-read-write/</loc><lastmod>2020-08-06T13:39:59+09:00</lastmod></url><url>
-    <loc>/tags/learn/</loc><lastmod>2020-08-06T13:39:59+09:00</lastmod></url><url>
-    <loc>/tags/</loc><lastmod>2020-08-06T13:39:59+09:00</lastmod></url><url>
     <loc>/article/chrome-extension/key-value_stroage/</loc><lastmod>2020-07-03T13:50:14+09:00</lastmod></url><url>
     <loc>/categories/lua/</loc><lastmod>2020-05-20T21:01:59+09:00</lastmod></url><url>
     <loc>/article/lua/lua-%ED%95%99%EC%8A%B5-7%EC%9D%BC%EC%B0%A8/</loc><lastmod>2020-05-20T21:01:59+09:00</lastmod></url><url>

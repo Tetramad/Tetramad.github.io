@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Assembly on /dev/log</title>
+    <link>/categories/assembly/</link>
+    <description>Recent content in Assembly on /dev/log</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Thu, 06 Aug 2020 13:59:14 +0900</lastBuildDate>
+    
+        <atom:link href="/categories/assembly/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>어셈블리어 정리</title>
+      <link>/article/assembly/%EC%96%B4%EC%85%88%EB%B8%94%EB%A6%AC%EC%96%B4-%EC%A0%95%EB%A6%AC/</link>
+      <pubDate>Thu, 06 Aug 2020 13:59:14 +0900</pubDate>
+      
+      <guid>/article/assembly/%EC%96%B4%EC%85%88%EB%B8%94%EB%A6%AC%EC%96%B4-%EC%A0%95%EB%A6%AC/</guid>
+      <description>어셈블리어란 무엇인가? 어셈블리어(assembly language) 또는 어셈블러 언어(assembler language)는 기계어와 일대일 대응이 되는 컴퓨터 프</description>
+      
+    </item>
+    
+  </channel>
+</rss>
